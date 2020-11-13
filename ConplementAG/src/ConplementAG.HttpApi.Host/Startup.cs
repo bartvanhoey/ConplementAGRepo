@@ -10,6 +10,11 @@ namespace ConplementAG
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddApplication<ConplementAGHttpApiHostModule>();
+
+            services.AddAntiforgery(options =>
+            {
+                options.SuppressXFrameOptionsHeader = true;
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
