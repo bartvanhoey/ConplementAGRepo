@@ -1,22 +1,3 @@
-# Presentation ConplementAG
+https://dev.azure.com/AbpIoAzureDevopsOrg/AbpIoAzureDevopsProj/_apis/build/status/Build%20pipeline?branchName=gh-pages
 
-1 Open a command prompt in folder ..\ConplementAGRepo and run command below
-
-  `abp new ConplementAG -u blazor`
-
-2 Rename the aspnet-core folder to ConplementAG
-
-3 There are unresolved dependencies. Please execute the restore command to continue. (Click Restore)
-
-4 Required assets to build and debug are missing from 'ConplementAGRepo'. Add them? (Click Yes)
-
-5 Open a command prompt in ConplementAG.DbMigrator -> dotnet run
-
-6 Open a command prompt in ConplementAG.HttpApi.Host -> dotnet run
-
-7 Open a command prompt in ConplementAG.Blazor -> dotnet run
-
-8 Stop API and Blazor project
-
-9 add, commit and push
-
+[![Build Status](https://dev.azure.com/AbpIoAzureDevopsOrg/AbpIoAzureDevopsProj/_apis/build/status/Build%20pipeline?branchName=gh-pages)](https://dev.azure.com/AbpIoAzureDevopsOrg/AbpIoAzureDevopsProj/_build/latest?definitionId=1&branchName=gh-pages)
