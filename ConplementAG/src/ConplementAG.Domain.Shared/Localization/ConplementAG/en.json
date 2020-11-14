@@ -3,7 +3,10 @@
   "texts": {
     "Menu:Home": "Home",
     "Welcome": "Welcome",
-    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
+    "GoalToday": "Today's Goal",
+    "GoalToday_ContactManagementApp": "Create a basic Contact Management application with CRUD operations based on the ABP Framework",
+    "GoalToday_ContinuousDeployment": "Demonstrate the Continuous Deployment setup in Azure DevOps and automatically deploy the application to the Azure cloud", 
+    "GoalToday_OverviewTechnologies": "Explain the ABP Framework and give an overview of the Technologies used", 
     "Menu:ContactManagement": "Contact Management",
     "Menu:Contacts" : "Contacts"
   }
