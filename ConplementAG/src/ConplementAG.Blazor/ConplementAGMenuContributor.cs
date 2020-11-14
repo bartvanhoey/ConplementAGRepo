@@ -53,7 +53,7 @@ namespace ConplementAG.Blazor
       context.Menu.AddItem(contactManagementMenu);
 
       // TODO 2. Comment out these 2 lines of code
-      var ContactsMenu = new ApplicationMenuItem("ContactsMenu", l["Menu:Contacts"], url: "/Contacts");
+      var ContactsMenu = new ApplicationMenuItem("ContactsMenu", l["Menu:Contacts"], url: "/contacts");
       contactManagementMenu.AddItem(ContactsMenu);
 
       // TODO 3. Uncomment this block of coke
