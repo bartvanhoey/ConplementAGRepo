@@ -3,11 +3,11 @@
   "texts": {
     "Menu:Home": "Home",
     "Welcome": "Welcome",
-    "GoalToday": "Today's Goal",
-    "GoalToday_OverviewTechnologies": "Explain the ABP Framework and give an overview of the Technologies used", 
-    "GoalToday_LiveDemoSession": "Live coding demo session",
-    "GoalToday_ContactManagementApp": "Create a basic Contact Management application with CRUD operations based on the ABP Framework",
-    "GoalToday_ContinuousDeployment": "Demonstrate Continuous Deployment in Azure DevOps and automatically deploy to Azure", 
+    "GoalToday": "Das heutige Ziel",
+    "GoalToday_OverviewTechnologies": "Erläuterung des ABP-Frameworks und Überblick über die verwendeten Technologien", 
+    "GoalToday_LiveDemoSession": "Live codierung Demo-Sitzung",
+    "GoalToday_ContactManagementApp": "Erstellen von eine  Kontakt Management-Anwendung mit CRUD-Operationen, basiert  auf dem ABP Framework",
+    "GoalToday_ContinuousDeployment": "Demonstrieren von Continuous Deployment in Azure DevOps und das automatisches Deployment zu Azure", 
     "UsedTechnologies": "Technologies used",
     "Menu:ContactManagement": "Contact Management",
     "Menu:Contacts" : "Contacts"

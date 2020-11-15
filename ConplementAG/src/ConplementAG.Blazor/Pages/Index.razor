@@ -8,8 +8,8 @@
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject IStringLocalizer<ConplementAGResource> L
 <div class="container">
-    <div class="p-5 text-center" hidden="@GoalTodayIsHidden">
-        <CloseButton @onclick="@CloseGoalToday" />
+    <div class="p-5 text-center" hidden="@IsHiddenGoalToday">
+        <CloseButton @onclick="@ToggleVisibility" />
         <h3>@L["GoalToday"]</h3>
         <p class="lead px-lg-5 mx-lg-5">@L["GoalToday_LiveDemoSession"]</p>
         <p class="lead px-lg-5 mx-lg-5">@L["GoalToday_OverviewTechnologies"]</p>
@@ -17,114 +17,132 @@
         <p class="lead px-lg-5 mx-lg-5">@L["GoalToday_ContinuousDeployment"]</p>
     </div>
 
-    <div class="card mt-2 mb-5" hidden="@TechnologiesIsHidden">
-        <div class="card-body">
-            <h3 class="row text-center justify-content-md-center">@L["UsedTechnologies"]</h3>
-            <div class="row text-center justify-content-md-center">
-                <div class="col-lg-4">
-                    <div class="p-4">
-                        <h5 class="mb-3"><i class="fas fa-book text-secondary d-block my-3 fa-2x"></i> ABP
-                            Framework</h5>
-                        <p>An open source web application framework for <strong>ASP.NET Core</strong> that provides a
-                            complete infrastructure to create modern web applications by following software development
-                            <strong>best practices and conventions</strong>.</p>
-                        <a href="https://abp.io/features" target="_blank" class="btn btn-link px-1">Features <i
-                                class="fas fa-chevron-right"></i></a>
+    <div hidden="@IsHiddenTechnologies">
+        <CloseButton @onclick="@ToggleVisibility" />
+        <div class="card mt-2 mb-5" >
+            <div class="card-body">
+                <h3 class="row text-center justify-content-md-center">@L["UsedTechnologies"]</h3>
+                <div class="row text-center justify-content-md-center">
+                    <div class="col-lg-4">
+                        <div class="p-4">
+                            <h5 class="mb-3"><i class="fas fa-book text-secondary d-block my-3 fa-2x"></i> ABP
+                                Framework</h5>
+                            <p>An open source web application framework for <strong>ASP.NET Core</strong> that provides
+                                a
+                                complete infrastructure to create modern web applications by following software
+                                development
+                                <strong>best practices and conventions</strong>.</p>
+                            <a href="https://abp.io/features" target="_blank" class="btn btn-link px-1">Features <i
+                                    class="fas fa-chevron-right"></i></a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 border-left">
-                    <div class="p-4">
-                        <h5 class="mb-3"><i class="fas fa-cubes text-secondary d-block my-3 fa-2x"></i> EasyAbp</h5>
-                        <p>An <strong>open source organization</strong> to enhance your ABP project development
-                            efficiency.</p>
-                        <a href="https://easyabp.io/abphelper/AbpHelper.GUI/" target="_blank"
-                            class="btn btn-link px-1">AbpHelper.GUI <i class="fas fa-chevron-right"></i></a>
+                    <div class="col-lg-4 border-left">
+                        <div class="p-4">
+                            <h5 class="mb-3"><i class="fas fa-cubes text-secondary d-block my-3 fa-2x"></i> EasyAbp</h5>
+                            <p>An <strong>open source organization</strong> to enhance your ABP project development
+                                efficiency.</p>
+                            <a href="https://easyabp.io/abphelper/AbpHelper.GUI/" target="_blank"
+                                class="btn btn-link px-1">AbpHelper.GUI <i class="fas fa-chevron-right"></i></a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 border-left">
-                    <div class="p-4">
-                        <h5 class="mb-3"><i class="fas fa-at text-secondary d-block my-3 fa-2x"></i> ABPx
-                        </h5>
-                        <p>A <strong>VsCode extension</strong> with code snippets to <strong>speed up the development
-                                process</strong> of an ABP Blazor applications</p>
-                        <a href="https://marketplace.visualstudio.com/items?itemName=BartVanHoey.abpx" target="_blank"
-                            class="btn btn-link px-1">ABPx Visual Studio Marketplace <i
-                                class="fas fa-chevron-right"></i></a>
+                    <div class="col-lg-4 border-left">
+                        <div class="p-4">
+                            <h5 class="mb-3"><i class="fas fa-at text-secondary d-block my-3 fa-2x"></i> ABPx
+                            </h5>
+                            <p>A <strong>VsCode extension</strong> with code snippets to <strong>speed up the
+                                    development
+                                    process</strong> of an ABP Blazor applications</p>
+                            <a href="https://marketplace.visualstudio.com/items?itemName=BartVanHoey.abpx"
+                                target="_blank" class="btn btn-link px-1">ABPx Visual Studio Marketplace <i
+                                    class="fas fa-chevron-right"></i></a>
 
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row text-center mt-lg-3 justify-content-md-center">
-                <div class="col-lg-4">
-                    <div class="p-4">
-                        <h5 class="mb-3"><i class="fas fa-code text-secondary d-block my-3 fa-2x"></i> Blazor</h5>
-                        <p>A feature of <strong>ASP.NET</strong>, the popular web development framework that extends the
-                            <strong the strong>.NET developer platform</strong> with tools and libraries for building
-                            web apps.</p>
-                        <a href="https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor" target="_blank"
-                            class="btn btn-link px-1">Blazor - Build client web apps with C# <i
-                                class="fas fa-chevron-right"></i></a>
+                <div class="row text-center mt-lg-3 justify-content-md-center">
+                    <div class="col-lg-4">
+                        <div class="p-4">
+                            <h5 class="mb-3"><i class="fas fa-code text-secondary d-block my-3 fa-2x"></i> Blazor</h5>
+                            <p>A feature of <strong>ASP.NET</strong>, the popular web development framework that extends
+                                the
+                                <strong the strong>.NET developer platform</strong> with tools and libraries for
+                                building
+                                web apps.</p>
+                            <a href="https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor" target="_blank"
+                                class="btn btn-link px-1">Blazor - Build client web apps with C# <i
+                                    class="fas fa-chevron-right"></i></a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 border-left">
-                    <div class="p-4">
-                        <h5 class="mb-3"><i class="fab fa-github text-secondary d-block my-3 fa-2x"></i> Github</h5>
-                        <p>The source code of <a href="https://conplementag.azurewebsites.net/" target="_blank"
-                                class="btn btn-link px-1">https://conplementag.azurewebsites.net </a> is hosted in
-                            GitHub
-                            and used in the <strong>continuous deployment</strong> process.</p>
+                    <div class="col-lg-4 border-left">
+                        <div class="p-4">
+                            <h5 class="mb-3"><i class="fab fa-github text-secondary d-block my-3 fa-2x"></i> Github</h5>
+                            <p>The source code of <a href="https://conplementag.azurewebsites.net/" target="_blank"
+                                    class="btn btn-link px-1">https://conplementag.azurewebsites.net </a> is hosted in
+                                GitHub
+                                and used in the <strong>continuous deployment</strong> process.</p>
 
-                        <a href="https://github.com/bartvanhoey/ConplementAGRepo" target="_blank"
-                            class="btn btn-link px-1">Source code ConplementAG <i class="fas fa-chevron-right"></i></a>
+                            <a href="https://github.com/bartvanhoey/ConplementAGRepo" target="_blank"
+                                class="btn btn-link px-1">Source code ConplementAG <i
+                                    class="fas fa-chevron-right"></i></a>
 
+                        </div>
+                    </div>
+                    <div class="col-lg-4 border-left">
+                        <div class="p-4">
+                            <h5 class="mb-3"><i class="fas fa-rocket text-secondary d-block my-3 fa-2x"></i> Azure
+                                Pipelines
+                            </h5>
+                            <p>A cloud service that you can use to <strong>automatically build, test and deploy</strong>
+                                your code project. </p>
+                            <a href="https://dev.azure.com/ConplementAGorg/ConplementAGproj/_build" target="_blank"
+                                class="btn btn-link px-1">Overview Pipelines setup <i
+                                    class="fas fa-chevron-right"></i></a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 border-left">
-                    <div class="p-4">
-                        <h5 class="mb-3"><i class="fas fa-rocket text-secondary d-block my-3 fa-2x"></i> Azure Pipelines
-                        </h5>
-                        <p>A cloud service that you can use to <strong>automatically build, test and deploy</strong>
-                            your code project. </p>
-                        <a href="https://dev.azure.com/ConplementAGorg/ConplementAGproj/_build" target="_blank"
-                            class="btn btn-link px-1">Overview Pipelines setup <i class="fas fa-chevron-right"></i></a>
+                <div class="row text-center mt-lg-3 justify-content-md-center">
+                    <div class="col-lg-4">
+                        <div class="p-4">
+                            <h5 class="mb-3"><i class="fas fa-cloud-upload-alt text-secondary d-block my-3 fa-2x"></i>
+                                Azure
+                            </h5>
+                            <p>A cloud platform with <strong>more than 200 products and cloud services</strong> designed
+                                to
+                                help you bring new solutions to life.</p>
+                            <a href="@AzureUrl" target="_blank" class="btn btn-link px-1">Overview Azure setup <i
+                                    class="fas fa-chevron-right"></i></a>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="row text-center mt-lg-3 justify-content-md-center">
-                <div class="col-lg-4">
-                    <div class="p-4">
-                        <h5 class="mb-3"><i class="fas fa-cloud-upload-alt text-secondary d-block my-3 fa-2x"></i> Azure
-                        </h5>
-                        <p>A cloud platform with <strong>more than 200 products and cloud services</strong> designed to
-                            help you bring new solutions to life.</p>
-                        <a href="@AzureUrl" target="_blank" class="btn btn-link px-1">Overview Azure setup <i
-                                class="fas fa-chevron-right"></i></a>
+                    <div class="col-lg-4 border-left">
+                        <div class="p-4">
+                            <h5 class="mb-3"><i class="fas fa-briefcase text-secondary d-block my-3 fa-2x"></i>
+                                Blazorise
+                            </h5>
+                            <p>A <strong>component library</strong> built on top of Blazor with support for CSS
+                                frameworks
+                                like Bootstrap, Bulma, AntDesign and Material.</p>
+
+                            <a href="https://blazorise.com/" target="_blank" class="btn btn-link px-1">See
+                                ABP Framework uses Blazorise <i class="fas fa-chevron-right"></i></a>
+
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 border-left">
-                    <div class="p-4">
-                        <h5 class="mb-3"><i class="fas fa-briefcase text-secondary d-block my-3 fa-2x"></i> Blazorise
-                        </h5>
-                        <p>A <strong>component library</strong> built on top of Blazor with support for CSS frameworks
-                            like Bootstrap, Bulma, AntDesign and Material.</p>
+                    <div class="col-lg-4 border-left">
+                        <div class="p-4">
+                            <h5 class="mb-3"><i class="fas fa-edit text-secondary d-block my-3 fa-2x"></i> Visual Studio
+                                Code</h5>
+                            <p>A lightweight but powerful <strong>source code editor</strong> which runs on your desktop
+                                and
+                                is available for Windows, macOS and Linux.</p>
+                            <a href="https://code.visualstudio.com/" target="_blank" class="btn btn-link px-1">Visual
+                                Studio
+                                Code <i class="fas fa-chevron-right"></i></a>
 
-                        <a href="https://blazorise.com/" target="_blank" class="btn btn-link px-1">See
-                            ABP Framework uses Blazorise <i class="fas fa-chevron-right"></i></a>
-
-                    </div>
-                </div>
-                <div class="col-lg-4 border-left">
-                    <div class="p-4">
-                        <h5 class="mb-3"><i class="fas fa-edit text-secondary d-block my-3 fa-2x"></i> Visual Studio
-                            Code</h5>
-                        <p>A lightweight but powerful <strong>source code editor</strong> which runs on your desktop and
-                            is available for Windows, macOS and Linux.</p>
-                        <a href="https://code.visualstudio.com/" target="_blank" class="btn btn-link px-1">Visual Studio
-                            Code <i class="fas fa-chevron-right"></i></a>
-
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
