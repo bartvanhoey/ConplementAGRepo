@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/ConplementAG/src/ConplementAG.HttpApi.Host/ConplementAG.HttpApi.Host.csproj",
+                "${workspaceFolder}/src/ConplementAG.HttpApi.Host/ConplementAG.HttpApi.Host.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/ConplementAG/src/ConplementAG.DbMigrator/ConplementAG.DbMigrator.csproj",
+                "${workspaceFolder}/src/ConplementAG.DbMigrator/ConplementAG.DbMigrator.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -31,7 +31,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/ConplementAG/src/ConplementAG.HttpApi.Host/ConplementAG.HttpApi.Host.csproj",
+                "${workspaceFolder}/src/ConplementAG.HttpApi.Host/ConplementAG.HttpApi.Host.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -44,7 +44,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/ConplementAG/src/ConplementAG.HttpApi.Host/ConplementAG.HttpApi.Host.csproj",
+                "${workspaceFolder}/src/ConplementAG.HttpApi.Host/ConplementAG.HttpApi.Host.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],

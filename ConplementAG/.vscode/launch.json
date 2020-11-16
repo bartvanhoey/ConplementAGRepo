@@ -10,9 +10,9 @@
              "request": "launch",
              "preLaunchTask": "build",
              // If you have changed target frameworks, make sure to update the program path.
-             "program": "${workspaceFolder}/ConplementAG/src/ConplementAG.HttpApi.Host/bin/Debug/netcoreapp3.1/ConplementAG.HttpApi.Host.dll",
+             "program": "${workspaceFolder}/src/ConplementAG.HttpApi.Host/bin/Debug/netcoreapp3.1/ConplementAG.HttpApi.Host.dll",
              "args": [],
-             "cwd": "${workspaceFolder}/ConplementAG/src/ConplementAG.HttpApi.Host",
+             "cwd": "${workspaceFolder}/src/ConplementAG.HttpApi.Host",
              "stopAtEntry": false,
              // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
              "serverReadyAction": {
@@ -32,9 +32,9 @@
              "request": "launch",
              "preLaunchTask": "buildDbMigrator",
              // If you have changed target frameworks, make sure to update the program path.
-             "program": "${workspaceFolder}/ConplementAG/src/ConplementAG.DbMigrator/bin/Debug/netcoreapp3.1/ConplementAG.DbMigrator.dll",
+             "program": "${workspaceFolder}/src/ConplementAG.DbMigrator/bin/Debug/netcoreapp3.1/ConplementAG.DbMigrator.dll",
              "args": [],
-             "cwd": "${workspaceFolder}/ConplementAG/src/ConplementAG.DbMigrator",
+             "cwd": "${workspaceFolder}/src/ConplementAG.DbMigrator",
              "stopAtEntry": false,
              "env": {
                  "ASPNETCORE_ENVIRONMENT": "Development"
@@ -50,9 +50,9 @@
              "request": "launch",
              "preLaunchTask": "buildDbMigrator",
              // If you have changed target frameworks, make sure to update the program path.
-             "program": "${workspaceFolder}/ConplementAG/src/ConplementAG.DbMigrator/bin/Debug/netcoreapp3.1/ConplementAG.DbMigrator.dll",
+             "program": "${workspaceFolder}/src/ConplementAG.DbMigrator/bin/Debug/netcoreapp3.1/ConplementAG.DbMigrator.dll",
              "args": [],
-             "cwd": "${workspaceFolder}/ConplementAG/src/ConplementAG.DbMigrator",
+             "cwd": "${workspaceFolder}/src/ConplementAG.DbMigrator",
              "stopAtEntry": false,
              "env": {
                  "ASPNETCORE_ENVIRONMENT": "Staging"
