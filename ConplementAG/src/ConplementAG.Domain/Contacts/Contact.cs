@@ -17,8 +17,8 @@ namespace ConplementAG.Domain.Contacts
   }
 
 
-   // TODO 2. Run AbpHelper tool to generate CRUD infrastructure
+   // TODO 1. Run AbpHelper tool to generate CRUD infrastructure
 
-   // TODO 3. Open terminal in DbMigrations Project and run command dotnet ef migrations add Contact_Added
+   // TODO 2. Open a terminal in the DbMigrations Project and run command dotnet ef migrations add Contact_Added
 
 }
