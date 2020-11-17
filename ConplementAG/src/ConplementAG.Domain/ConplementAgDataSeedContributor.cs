@@ -1,11 +1,13 @@
+// TODO 4. Uncomment the ConplementAgDataSeedContributor class
+// TODO 5. Launch DbMigratorStaging
 // using System.Threading.Tasks;
-// using ConplementAG.Domain.Domain;
+// using ConplementAG.Domain.Contacts;
 // using GenFu;
 // using Volo.Abp.Data;
 // using Volo.Abp.DependencyInjection;
 // using Volo.Abp.Guids;
 
-// namespace AgConplement.Domain
+// namespace ConplementAG.Domain
 // {
 //   public class ConplementAgDataSeedContributor : IDataSeedContributor, ITransientDependency
 //   {

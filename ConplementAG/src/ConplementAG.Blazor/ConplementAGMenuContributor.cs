@@ -34,7 +34,7 @@ namespace ConplementAG.Blazor
     private Task ConfigureMainMenuAsync(MenuConfigurationContext context)
     {
 
-      // TODO 1. Uncomment this  
+      // TODO 6. Uncomment this  
       // if (context.Menu.DisplayName != StandardMenus.Main) return;
 
       var l = context.GetLocalizer<ConplementAGResource>();
@@ -52,11 +52,11 @@ namespace ConplementAG.Blazor
       var contactManagementMenu = new ApplicationMenuItem("ContactManagementMenu", l["Menu:ContactManagement"], icon: "fas fa-users");
       context.Menu.AddItem(contactManagementMenu);
 
-      // TODO 2. Comment out these 2 lines of code
+      // TODO 7. Comment out these 2 lines of code
       var ContactsMenu = new ApplicationMenuItem("ContactsMenu", l["Menu:Contacts"], url: "/contacts");
       contactManagementMenu.AddItem(ContactsMenu);
 
-      // TODO 3. Uncomment this block of coke
+      // TODO 8. Uncomment this block of coke
       //   if (await context.IsGrantedAsync(ConplementAGPermissions.Contact.Default))
       //   {
       //     var ContactsMenu = new ApplicationMenuItem("ContactsMenu", l["Menu:Contacts"], url: "/Contacts");
@@ -64,7 +64,7 @@ namespace ConplementAG.Blazor
       //   }
 
 
-      // TODO 4. Comment out the line below
+      // TODO 9. Comment out the line below
       return Task.CompletedTask;
 
 
