@@ -1,15 +1,16 @@
 {
-  "culture": "en",
-  "texts": {
-    "Menu:Home": "Home",
-    "Welcome": "Welcome",
-    "GoalToday": "Today's Goal",
-    "GoalToday_OverviewTechnologies": "Explain the ABP Framework and give an overview of the Technologies used", 
-    "GoalToday_LiveDemoSession": "Live coding demo session",
-    "GoalToday_ContactManagementApp": "Create a basic Contact Management application with CRUD operations based on the ABP Framework",
-    "GoalToday_ContinuousDeployment": "Demonstrate Continuous Deployment in Azure DevOps and automatically deploy to Azure", 
-    "UsedTechnologies": "Technologies used",
-    "Menu:ContactManagement": "Contact Management",
-    "Menu:Contacts" : "Contacts"
-  }
+    "culture": "en",
+    "texts": {
+        "Menu:Home": "Home",
+        "Welcome": "Welcome",
+        "GoalToday": "Today's Goal",
+        "GoalToday_OverviewTechnologies": "Explain the ABP Framework and give an overview of the Technologies used",
+        "GoalToday_LiveDemoSession": "Live coding demo session",
+        "GoalToday_DeployContactManagementAppToAzure": "Deploy Contact Management to Azure",
+        "GoalToday_ContactManagementApp": "Create a basic Contact Management application with CRUD operations based on the ABP Framework",
+        "GoalToday_SetUpAzureDevopsAzure": "Demonstrate Continuous Deployment in Azure DevOps and automatically deploy to Azure",
+        "UsedTechnologies": "Technologies used",
+        "Menu:ContactManagement": "Contact Management",
+        "Menu:Contacts": "Contacts"
+    }
 }
