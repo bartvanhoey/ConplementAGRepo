@@ -1,5 +1,5 @@
-// TODO 4. Uncomment the ConplementAgDataSeedContributor class
-// TODO 5. Launch DbMigratorStaging
+// // TODO 4. Uncomment the ConplementAgDataSeedContributor class
+// // TODO 5. Launch DbMigratorStaging
 // using System.Threading.Tasks;
 // using ConplementAG.Domain.Contacts;
 // using GenFu;
