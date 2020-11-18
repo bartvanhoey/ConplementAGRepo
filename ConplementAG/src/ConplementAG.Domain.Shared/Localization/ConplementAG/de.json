@@ -2,6 +2,7 @@
   "culture": "de",
   "texts": {
     "Menu:Home": "Home",
+    "Menu:GoalToday": "Goal Today",
     "Welcome": "Welcome",
     "GoalToday": "Das heutige Ziel",
     "GoalToday_OverviewTechnologies": "Erläuterung des ABP-Frameworks und Überblick über die verwendeten Technologien", 

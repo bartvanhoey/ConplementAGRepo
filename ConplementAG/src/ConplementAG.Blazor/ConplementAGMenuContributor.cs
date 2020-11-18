@@ -43,7 +43,7 @@ namespace ConplementAG.Blazor
           0,
           new ApplicationMenuItem(
               "ConplementAG.Home",
-              l["Menu:Home"],
+              l["Menu:GoalToday"],
               "/",
               icon: "fas fa-home"
           )
