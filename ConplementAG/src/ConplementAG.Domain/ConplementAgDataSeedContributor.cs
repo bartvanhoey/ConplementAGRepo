@@ -1,5 +1,9 @@
 // // TODO 3. Uncomment the ConplementAgDataSeedContributor class
 // // TODO 4. Launch DbMigratorStaging
+// // TODO 5. Insert xListAbpCrudPageBase snippet in Contacts.razor
+// // TODO 6. Insert xCreateModalDialog snippet in Contacts.razor
+// // TODO 7. Insert xUpdateModalDialog snippet in Contacts.razor
+
 // using System.Threading.Tasks;
 // using ConplementAG.Domain.Contacts;
 // using GenFu;
