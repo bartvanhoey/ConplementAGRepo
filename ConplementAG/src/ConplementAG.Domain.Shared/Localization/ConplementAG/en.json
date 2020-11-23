@@ -1,17 +1,31 @@
 {
-    "culture": "en",
-    "texts": {
-        "Menu:Home": "Home",
-        "Menu:GoalToday": "Goal Today",
-        "Welcome": "Welcome",
-        "GoalToday": "Today's Goal",
-        "GoalToday_OverviewTechnologies": "Explain the ABP Framework and give an overview of the Technologies used",
-        "GoalToday_LiveDemoSession": "Live coding demo session",
-        "GoalToday_DeployContactManagementAppToAzure": "Deploy Contact Management to Azure",
-        "GoalToday_ContactManagementApp": "Create a basic Contact Management application with CRUD operations based on the ABP Framework",
-        "GoalToday_SetUpAzureDevopsAzure": "Demonstrate Continuous Deployment in Azure DevOps and automatically deploy to Azure",
-        "UsedTechnologies": "Technologies used",
-        "Menu:ContactManagement": "Contact Management",
-        "Menu:Contacts": "Contacts"
-    }
+  "culture": "en",
+  "texts": {
+    "Menu:Home": "Home",
+    "Menu:GoalToday": "Goal Today",
+    "Welcome": "Welcome",
+    "GoalToday": "Today's Goal",
+    "GoalToday_OverviewTechnologies": "Explain the ABP Framework and give an overview of the Technologies used",
+    "GoalToday_LiveDemoSession": "Live coding demo session",
+    "GoalToday_DeployContactManagementAppToAzure": "Deploy Contact Management to Azure",
+    "GoalToday_ContactManagementApp": "Create a basic Contact Management application with CRUD operations based on the ABP Framework",
+    "GoalToday_SetUpAzureDevopsAzure": "Demonstrate Continuous Deployment in Azure DevOps and automatically deploy to Azure",
+    "UsedTechnologies": "Technologies used",
+    "Menu:ContactManagement": "Contact Management",
+    "Menu:Contacts": "Contacts",
+    "Permission:Contact": "Contact",
+    "Permission:Create": "Create",
+    "Permission:Update": "Update",
+    "Permission:Delete": "Delete",
+    "Menu:Contact": "MenuContact",
+    "Contact": "Contact",
+    "ContactFirstName": "ContactFirstName",
+    "ContactLastName": "ContactLastName",
+    "ContactEmailAddress": "ContactEmailAddress",
+    "ContactPhoneNumber": "ContactPhoneNumber",
+    "CreateContact": "CreateContact",
+    "EditContact": "EditContact",
+    "ContactDeletionConfirmationMessage": "Are you sure to delete the contact {0}?",
+    "SuccessfullyDeleted": "Successfully deleted"
+  }
 }

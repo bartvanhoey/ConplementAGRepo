@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+using ConplementAG.Domain.Contacts;
+using Microsoft.EntityFrameworkCore;
 using Volo.Abp;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace ConplementAG.EntityFrameworkCore
 {
@@ -17,6 +19,16 @@ namespace ConplementAG.EntityFrameworkCore
             //    b.ConfigureByConvention(); //auto configure for the base class props
             //    //...
             //});
+
+
+            builder.Entity<Contact>(b =>
+            {
+                b.ToTable(ConplementAGConsts.DbTablePrefix + "Contacts", ConplementAGConsts.DbSchema);
+                b.ConfigureByConvention(); 
+                
+
+                /* Configure more properties here */
+            });
         }
     }
 }

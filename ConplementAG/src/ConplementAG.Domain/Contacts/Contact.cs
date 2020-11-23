@@ -14,6 +14,24 @@ namespace ConplementAG.Domain.Contacts
   
       public string PhoneNumber { get; set; }
   
+
+        protected Contact()
+        {
+        }
+
+        public Contact(
+            Guid id, 
+            string firstName, 
+            string lastName, 
+            string emailAddress, 
+            string phoneNumber
+        ) : base(id)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            EmailAddress = emailAddress;
+            PhoneNumber = phoneNumber;
+        }
   }
 
 

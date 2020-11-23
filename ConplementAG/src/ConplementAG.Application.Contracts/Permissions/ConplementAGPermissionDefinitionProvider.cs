@@ -1,4 +1,4 @@
-﻿using ConplementAG.Localization;
+using ConplementAG.Localization;
 using Volo.Abp.Authorization.Permissions;
 using Volo.Abp.Localization;
 
@@ -12,6 +12,11 @@ namespace ConplementAG.Permissions
 
             //Define your own permissions here. Example:
             //myGroup.AddPermission(ConplementAGPermissions.MyPermission1, L("Permission:MyPermission1"));
+
+            var contactPermission = myGroup.AddPermission(ConplementAGPermissions.Contact.Default, L("Permission:Contact"));
+            contactPermission.AddChild(ConplementAGPermissions.Contact.Create, L("Permission:Create"));
+            contactPermission.AddChild(ConplementAGPermissions.Contact.Update, L("Permission:Update"));
+            contactPermission.AddChild(ConplementAGPermissions.Contact.Delete, L("Permission:Delete"));
         }
 
         private static LocalizableString L(string name)

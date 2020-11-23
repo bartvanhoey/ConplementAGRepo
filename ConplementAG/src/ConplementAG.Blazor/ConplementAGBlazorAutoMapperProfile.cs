@@ -1,5 +1,5 @@
 ﻿// TODO 9. Uncomment using statement
-//using ConplementAG.Domain.Contacts.Dtos;
+using ConplementAG.Domain.Contacts.Dtos;
 using AutoMapper;
 
 namespace ConplementAG.Blazor
@@ -11,7 +11,7 @@ namespace ConplementAG.Blazor
       //Define your AutoMapper configuration here for the Blazor project.
       
       // TODO 8. Uncomment line below
-      // CreateMap<ContactDto, UpdateContactDto>();
+      CreateMap<ContactDto, UpdateContactDto>();
     
     }
   }

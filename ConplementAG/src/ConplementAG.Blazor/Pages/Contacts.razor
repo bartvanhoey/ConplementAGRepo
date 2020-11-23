@@ -1,1 +1,165 @@
 
+@* "NewContact": "New contact", *@
+@page "/contacts"
+@attribute [Authorize(ConplementAGPermissions.Contact.Default)]
+@using Volo.Abp.Application.Dtos
+@using Volo.Abp.BlazoriseUI
+@* below namespace where IContactAppService exists *@
+@using ConplementAG.Domain.Contacts
+@using ConplementAG.Domain.Contacts.Dtos
+@using ConplementAG.Localization
+@using ConplementAG.Permissions
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<ConplementAGResource> L
+@inherits AbpCrudPageBase<IContactAppService, ContactDto, Guid, PagedAndSortedResultRequestDto, CreateContactDto, UpdateContactDto>
+@*  @inherits AbpCrudPageBase<IContactAppService, ContactDto, Guid, PagedAndSortedResultRequestDto, CreateUpdateContactDto> *@
+
+<Card>
+    <CardHeader>
+        <Row>
+          <Column ColumnSize="ColumnSize.Is6">
+              <h2>@L["Contacts"]</h2>
+          </Column>
+          <Column ColumnSize="ColumnSize.Is6">
+              <Paragraph Alignment="TextAlignment.Right">
+                  @if (CanCreateContact)
+                  {
+                      <Button Color="Color.Primary" Clicked="OpenCreateModalAsync">@L["NewContact"]</Button>
+                  }
+              </Paragraph>
+          </Column>
+        </Row>
+    </CardHeader>
+
+    <CardBody>
+        <DataGrid TItem="ContactDto" Data="Entities" ReadData="OnDataGridReadAsync" TotalItems="TotalCount" ShowPager="true" PageSize="PageSize">
+            <DataGridColumns>
+                <DataGridColumn Width="150px" TItem="ContactDto" Field="@nameof(ContactDto.Id)" Sortable="true" Caption="@L["Actions"]">
+                    <DisplayTemplate>
+                        <Dropdown>
+                            <DropdownToggle Color="Color.Primary">
+                                @L["Actions"]
+                            </DropdownToggle>
+                            <DropdownMenu>
+                                @if (CanUpdateContact)
+                                {
+                                    <DropdownItem Clicked="() => OpenEditModalAsync(context.Id)">
+                                        @L["Edit"]
+                                    </DropdownItem>
+                                }
+                                @if (CanDeleteContact)
+                                {
+                                    <DropdownItem Clicked="() => DeleteEntityAsync(context)">
+                                        @L["Delete"]
+                                    </DropdownItem>
+                                }
+                            </DropdownMenu>
+                        </Dropdown>
+                    </DisplayTemplate>
+                </DataGridColumn>
+                @* <DataGridColumn TItem="ContactDto" Field="@nameof(ContactDto.FirstName)" Caption="@L["ContactFirstName"]"></DataGridColumn> *@
+                <DataGridColumn TItem="ContactDto" Field="@nameof(ContactDto.FirstName)" Caption="@L["ContactFirstName"]"></DataGridColumn>
+                <DataGridColumn TItem="ContactDto" Field="@nameof(ContactDto.LastName)" Caption="@L["ContactLastName"]"></DataGridColumn>
+                <DataGridColumn TItem="ContactDto" Field="@nameof(ContactDto.EmailAddress)" Caption="@L["ContactEmailAddress"]"></DataGridColumn>
+                <DataGridColumn TItem="ContactDto" Field="@nameof(ContactDto.PhoneNumber)" Caption="@L["ContactPhoneNumber"]"></DataGridColumn>
+            </DataGridColumns>
+        </DataGrid>
+    </CardBody>
+</Card>
+
+<Modal @ref="CreateModal">
+    <ModalBackdrop />
+    <ModalContent IsCentered="true" Size="ModalSize.Default">
+        <ModalHeader>
+            <ModalTitle>@L["NewContact"]</ModalTitle>
+            <CloseButton Clicked="CloseCreateModalAsync" />
+        </ModalHeader>
+        <ModalBody>
+           <Row>
+             <Column ColumnSize="ColumnSize.Is12">
+             @* <Field>
+                   <FieldLabel>@L["ContactName"]</FieldLabel>
+                   <TextEdit @bind-text="NewEntity.FirstNane" />
+                   </Field> *@
+                   <Field>
+                     <FieldLabel>@L["ContactFirstName"]</FieldLabel>
+                     <TextEdit @bind-text="NewEntity.FirstName" />
+                   </Field>
+                   <Field>
+                     <FieldLabel>@L["ContactLastName"]</FieldLabel>
+                     <TextEdit @bind-text="NewEntity.LastName" />
+                   </Field>
+                   <Field>
+                     <FieldLabel>@L["ContactEmailAddress"]</FieldLabel>
+                     <TextEdit @bind-text="NewEntity.EmailAddress" />
+                   </Field>
+                   <Field>
+                     <FieldLabel>@L["ContactPhoneNumber"]</FieldLabel>
+                     <TextEdit @bind-text="NewEntity.PhoneNumber" />
+                   </Field>
+             </Column>
+           </Row>
+        </ModalBody>
+        <ModalFooter>
+            <Button Color="Color.Secondary" Clicked="CloseCreateModalAsync">@L["Cancel"]</Button>
+            <Button Color="Color.Primary" Clicked="CreateEntityAsync">@L["Save"]</Button>
+        </ModalFooter>
+    </ModalContent>
+</Modal>
+
+<Modal @ref="EditModal">
+  <ModalBackdrop />
+  <ModalContent IsCentered="true" Size="ModalSize.Default">
+      <ModalHeader>
+          <ModalTitle>@EditingEntity.FirstName</ModalTitle>
+          <CloseButton Clicked="CloseEditModalAsync" />
+      </ModalHeader>
+      <ModalBody>
+       <Row>
+         <Column ColumnSize="ColumnSize.Is12">
+           @* <Field>
+                <FieldLabel>@L["ContactFirstName"]</FieldLabel>
+                <TextEdit @bind-text="EditingEntity.FirstName" />
+              </Field> *@
+              <Field>
+                <FieldLabel>@L["ContactFirstName"]</FieldLabel>
+                <TextEdit @bind-text="EditingEntity.FirstName" />
+              </Field>
+              <Field>
+                <FieldLabel>@L["ContactLastName"]</FieldLabel>
+                <TextEdit @bind-text="EditingEntity.LastName" />
+              </Field>
+              <Field>
+                <FieldLabel>@L["ContactEmailAddress"]</FieldLabel>
+                <TextEdit @bind-text="EditingEntity.EmailAddress" />
+              </Field>
+              <Field>
+                <FieldLabel>@L["ContactPhoneNumber"]</FieldLabel>
+                <TextEdit @bind-text="EditingEntity.PhoneNumber" />
+              </Field>
+         </Column>
+       </Row>
+      </ModalBody>
+      <ModalFooter>
+          <Button Color="Color.Secondary" Clicked="CloseEditModalAsync">@L["Cancel"]</Button>
+          <Button Color="Color.Primary" Clicked="UpdateEntityAsync">@L["Save"]</Button>
+      </ModalFooter>
+  </ModalContent>
+</Modal>
+
+@code
+{
+  protected bool CanCreateContact;
+  protected bool CanUpdateContact;
+  protected bool CanDeleteContact;
+
+  protected override async Task OnInitializedAsync()
+  {
+    await base.OnInitializedAsync();
+
+    CanCreateContact =await AuthorizationService.IsGrantedAsync(ConplementAGPermissions.Contact.Create);
+    CanUpdateContact = await AuthorizationService.IsGrantedAsync(ConplementAGPermissions.Contact.Update);
+    CanDeleteContact = await AuthorizationService.IsGrantedAsync(ConplementAGPermissions.Contact.Delete);
+  }
+}

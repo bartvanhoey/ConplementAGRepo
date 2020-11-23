@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using ConplementAG.Users;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.Modeling;
 using Volo.Abp.Identity;
 using Volo.Abp.Users.EntityFrameworkCore;
+using ConplementAG.Domain.Contacts;
 
 namespace ConplementAG.EntityFrameworkCore
 {
@@ -25,6 +26,7 @@ namespace ConplementAG.EntityFrameworkCore
         /* Add DbSet properties for your Aggregate Roots / Entities here.
          * Also map them inside ConplementAGDbContextModelCreatingExtensions.ConfigureConplementAG
          */
+        public DbSet<Contact> Contacts { get; set; }
 
         public ConplementAGDbContext(DbContextOptions<ConplementAGDbContext> options)
             : base(options)
